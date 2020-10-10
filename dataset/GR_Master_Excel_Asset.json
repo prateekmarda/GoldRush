@@ -1,5 +1,5 @@
 {
-	"name": "GR_Master_Excel",
+	"name": "GR_Master_Excel_Asset",
 	"properties": {
 		"description": "Asset sheet data",
 		"linkedServiceName": {

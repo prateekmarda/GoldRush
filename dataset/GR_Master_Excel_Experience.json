@@ -1,11 +1,14 @@
 {
 	"name": "GR_Master_Excel_Experience",
 	"properties": {
+		"description": "Experience sheet data",
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage_GR",
 			"type": "LinkedServiceReference"
 		},
-		"annotations": [],
+		"annotations": [
+			"Experience"
+		],
 		"type": "Excel",
 		"typeProperties": {
 			"sheetName": "Experience",

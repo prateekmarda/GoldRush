@@ -1,0 +1,42 @@
+{
+	"name": "GR_Master_Excel_Activity",
+	"properties": {
+		"description": "Activity sheet data",
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_GR",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [
+			"Activity"
+		],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Activity",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Master.xlsx",
+				"folderPath": "GoldRush_MF_Finance_db",
+				"container": "gr-demo-container"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Unique_Advisor_Id",
+				"type": "String"
+			},
+			{
+				"name": "Month",
+				"type": "String"
+			},
+			{
+				"name": "Activity_Type",
+				"type": "String"
+			},
+			{
+				"name": "Activity_Count",
+				"type": "String"
+			}
+		]
+	}
+}

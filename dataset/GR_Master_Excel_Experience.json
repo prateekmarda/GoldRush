@@ -1,0 +1,111 @@
+{
+	"name": "GR_Master_Excel_Experience",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_GR",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Experience",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Master.xlsx",
+				"folderPath": "GoldRush_MF_Finance_db",
+				"container": "gr-demo-container"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Unique_Investment_Id",
+				"type": "String"
+			},
+			{
+				"name": "Morningstar Category",
+				"type": "String"
+			},
+			{
+				"name": "Month",
+				"type": "String"
+			},
+			{
+				"name": "Investment",
+				"type": "String"
+			},
+			{
+				"name": "Rating",
+				"type": "String"
+			},
+			{
+				"name": "1 Yr % Rank",
+				"type": "String"
+			},
+			{
+				"name": "3 Yr % Rank",
+				"type": "String"
+			},
+			{
+				"name": "5 Yr % Rank",
+				"type": "String"
+			},
+			{
+				"name": "10 Yr % Rank",
+				"type": "String"
+			},
+			{
+				"name": "1 Yr Return",
+				"type": "String"
+			},
+			{
+				"name": "3 Yr Return",
+				"type": "String"
+			},
+			{
+				"name": "5 Yr Return",
+				"type": "String"
+			},
+			{
+				"name": "10 Yr Return",
+				"type": "String"
+			},
+			{
+				"name": "1 Yr Excess Return vs Primary Ix",
+				"type": "String"
+			},
+			{
+				"name": "3 Yr Excess Return vs Primary Ix",
+				"type": "String"
+			},
+			{
+				"name": "5 Yr Excess Return vs Primary Ix",
+				"type": "String"
+			},
+			{
+				"name": "10 Yr Excess Return vs Primary Ix",
+				"type": "String"
+			},
+			{
+				"name": "1 Yr Excess Return vs Category Ix",
+				"type": "String"
+			},
+			{
+				"name": "3 Yr Excess Return vs Category Ix",
+				"type": "String"
+			},
+			{
+				"name": "5 Yr Excess Return vs Category Ix",
+				"type": "String"
+			},
+			{
+				"name": "10 Yr Excess Return vs Category Ix",
+				"type": "String"
+			},
+			{
+				"name": "Net Flows",
+				"type": "String"
+			}
+		]
+	}
+}

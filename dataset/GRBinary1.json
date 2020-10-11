@@ -5,7 +5,9 @@
 			"referenceName": "AzureBlobStorage_GR",
 			"type": "LinkedServiceReference"
 		},
-		"annotations": [],
+		"annotations": [
+			"MasterBinary"
+		],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {

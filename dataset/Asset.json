@@ -1,18 +1,19 @@
 {
-	"name": "GRBinary1",
+	"name": "Asset",
 	"properties": {
+		"description": "Asset CSV data",
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage_GR",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [
-			"MasterBinary"
+			"AssetBinary"
 		],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Master.xlsx",
+				"fileName": "Asset.csv",
 				"folderPath": "GoldRush_MF_Finance_db",
 				"container": "gr-demo-container"
 			}

@@ -26,15 +26,19 @@
 				"type": "String"
 			},
 			{
+				"name": "Unique_Investment_Id",
+				"type": "String"
+			},
+			{
 				"name": "Month",
 				"type": "String"
 			},
 			{
-				"name": "Activity_Type",
+				"name": "Shares",
 				"type": "String"
 			},
 			{
-				"name": "Activity_Count",
+				"name": "AUM",
 				"type": "String"
 			}
 		]

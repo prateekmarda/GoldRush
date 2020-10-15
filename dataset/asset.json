@@ -1,0 +1,37 @@
+{
+	"name": "asset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Unique_Advisor_Id",
+				"type": "varchar"
+			},
+			{
+				"name": "Unique_Investment_Id",
+				"type": "varchar"
+			},
+			{
+				"name": "Month",
+				"type": "varchar"
+			},
+			{
+				"name": "Shares",
+				"type": "varchar"
+			},
+			{
+				"name": "AUM",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "asset"
+		}
+	}
+}

@@ -473,7 +473,7 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "activity"
+					"table": "asset"
 				}
 			},
 			"dependsOn": [

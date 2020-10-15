@@ -1,0 +1,582 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "GoldRush-Data-Factory"
+		},
+		"Activity_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Activity'"
+		},
+		"AzureBlobStorage_GR_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage_GR'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Activity')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('Activity_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage_GR')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Azure Blob Storage for GoldRush demo via GitHub",
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage_GR_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlDatabase1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlDatabase2_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/GR_Master_Excel_Activity')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Activity sheet data",
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage_GR",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [
+					"Activity"
+				],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Asset",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Master.xlsx",
+						"folderPath": "GoldRush_MF_Finance_db",
+						"container": "gr-demo-container"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "Unique_Advisor_Id",
+						"type": "String"
+					},
+					{
+						"name": "Unique_Investment_Id",
+						"type": "String"
+					},
+					{
+						"name": "Month",
+						"type": "String"
+					},
+					{
+						"name": "Shares",
+						"type": "String"
+					},
+					{
+						"name": "AUM",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_GR')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/GR_Master_Excel_Asset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Asset sheet data",
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage_GR",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [
+					"Asset"
+				],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Asset",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Master.xlsx",
+						"folderPath": "GoldRush_MF_Finance_db",
+						"container": "gr-demo-container"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "Unique_Advisor_Id",
+						"type": "String"
+					},
+					{
+						"name": "Unique_Investment_Id",
+						"type": "String"
+					},
+					{
+						"name": "Month",
+						"type": "String"
+					},
+					{
+						"name": "Shares",
+						"type": "String"
+					},
+					{
+						"name": "AUM",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_GR')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/GR_Master_Excel_Experience')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Experience sheet data",
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage_GR",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [
+					"Experience"
+				],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Experience",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Master.xlsx",
+						"folderPath": "GoldRush_MF_Finance_db",
+						"container": "gr-demo-container"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "Unique_Investment_Id",
+						"type": "String"
+					},
+					{
+						"name": "Morningstar Category",
+						"type": "String"
+					},
+					{
+						"name": "Month",
+						"type": "String"
+					},
+					{
+						"name": "Investment",
+						"type": "String"
+					},
+					{
+						"name": "Rating",
+						"type": "String"
+					},
+					{
+						"name": "1 Yr % Rank",
+						"type": "String"
+					},
+					{
+						"name": "3 Yr % Rank",
+						"type": "String"
+					},
+					{
+						"name": "5 Yr % Rank",
+						"type": "String"
+					},
+					{
+						"name": "10 Yr % Rank",
+						"type": "String"
+					},
+					{
+						"name": "1 Yr Return",
+						"type": "String"
+					},
+					{
+						"name": "3 Yr Return",
+						"type": "String"
+					},
+					{
+						"name": "5 Yr Return",
+						"type": "String"
+					},
+					{
+						"name": "10 Yr Return",
+						"type": "String"
+					},
+					{
+						"name": "1 Yr Excess Return vs Primary Ix",
+						"type": "String"
+					},
+					{
+						"name": "3 Yr Excess Return vs Primary Ix",
+						"type": "String"
+					},
+					{
+						"name": "5 Yr Excess Return vs Primary Ix",
+						"type": "String"
+					},
+					{
+						"name": "10 Yr Excess Return vs Primary Ix",
+						"type": "String"
+					},
+					{
+						"name": "1 Yr Excess Return vs Category Ix",
+						"type": "String"
+					},
+					{
+						"name": "3 Yr Excess Return vs Category Ix",
+						"type": "String"
+					},
+					{
+						"name": "5 Yr Excess Return vs Category Ix",
+						"type": "String"
+					},
+					{
+						"name": "10 Yr Excess Return vs Category Ix",
+						"type": "String"
+					},
+					{
+						"name": "Net Flows",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_GR')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/GR_Master_Excel_Transaction')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Transaction sheet data",
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage_GR",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [
+					"Transaction"
+				],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Transaction",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Master.xlsx",
+						"folderPath": "GoldRush_MF_Finance_db",
+						"container": "gr-demo-container"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "Unique_Advisor_Id",
+						"type": "String"
+					},
+					{
+						"name": "Unique_Investment_Id",
+						"type": "String"
+					},
+					{
+						"name": "Month",
+						"type": "String"
+					},
+					{
+						"name": "Transaction_Type",
+						"type": "String"
+					},
+					{
+						"name": "Code_1",
+						"type": "String"
+					},
+					{
+						"name": "Code_2",
+						"type": "String"
+					},
+					{
+						"name": "Code_3",
+						"type": "String"
+					},
+					{
+						"name": "Code_4",
+						"type": "String"
+					},
+					{
+						"name": "Code_5",
+						"type": "String"
+					},
+					{
+						"name": "Amount",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_GR')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/MasterBlob')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Master sheet data",
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage_GR",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [
+					"MasterBinary"
+				],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Master.xlsx",
+						"folderPath": "GoldRush_MF_Finance_db",
+						"container": "gr-demo-container"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_GR')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/activity_gr')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Unique_Advisor_Id",
+						"type": "varchar"
+					},
+					{
+						"name": "Month",
+						"type": "varchar"
+					},
+					{
+						"name": "Activity_Type",
+						"type": "varchar"
+					},
+					{
+						"name": "Activity_Count",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "activity"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/asset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Unique_Advisor_Id",
+						"type": "varchar"
+					},
+					{
+						"name": "Unique_Investment_Id",
+						"type": "varchar"
+					},
+					{
+						"name": "Month",
+						"type": "varchar"
+					},
+					{
+						"name": "Shares",
+						"type": "varchar"
+					},
+					{
+						"name": "AUM",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "asset"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "activity",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "ExcelSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "GR_Master_Excel_Activity",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "activity_gr",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "asset",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "ExcelSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "GR_Master_Excel_Asset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "asset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/GR_Master_Excel_Activity')]",
+				"[concat(variables('factoryId'), '/datasets/activity_gr')]",
+				"[concat(variables('factoryId'), '/datasets/GR_Master_Excel_Asset')]",
+				"[concat(variables('factoryId'), '/datasets/asset')]"
+			]
+		}
+	]
+}

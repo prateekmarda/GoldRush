@@ -11,7 +11,7 @@
 		],
 		"type": "Excel",
 		"typeProperties": {
-			"sheetName": "Activity",
+			"sheetName": "Asset",
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Master.xlsx",

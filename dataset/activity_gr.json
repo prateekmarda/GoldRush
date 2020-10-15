@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "activity_gr",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",

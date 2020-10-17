@@ -2,18 +2,14 @@
 	"name": "activity_gr",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase1",
+			"referenceName": "sql_activity",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "Unique_Investment_Id",
-				"type": "varchar"
-			},
-			{
-				"name": "Morningstar Category",
+				"name": "Unique_Advisor_Id",
 				"type": "varchar"
 			},
 			{
@@ -21,85 +17,17 @@
 				"type": "varchar"
 			},
 			{
-				"name": "Investment",
+				"name": "Activity_Type",
 				"type": "varchar"
 			},
 			{
-				"name": "Rating",
-				"type": "varchar"
-			},
-			{
-				"name": "1 Yr % Rank",
-				"type": "varchar"
-			},
-			{
-				"name": "3 Yr % Rank",
-				"type": "varchar"
-			},
-			{
-				"name": "5 Yr % Rank",
-				"type": "varchar"
-			},
-			{
-				"name": "10 Yr % Rank",
-				"type": "varchar"
-			},
-			{
-				"name": "1 Yr Return",
-				"type": "varchar"
-			},
-			{
-				"name": "3 Yr Return",
-				"type": "varchar"
-			},
-			{
-				"name": "5 Yr Return",
-				"type": "varchar"
-			},
-			{
-				"name": "10 Yr Return",
-				"type": "varchar"
-			},
-			{
-				"name": "1 Yr Excess Return vs Primary Ix",
-				"type": "varchar"
-			},
-			{
-				"name": "3 Yr Excess Return vs Primary Ix",
-				"type": "varchar"
-			},
-			{
-				"name": "5 Yr Excess Return vs Primary Ix",
-				"type": "varchar"
-			},
-			{
-				"name": "10 Yr Excess Return vs Primary Ix",
-				"type": "varchar"
-			},
-			{
-				"name": "1 Yr Excess Return vs Category Ix",
-				"type": "varchar"
-			},
-			{
-				"name": "3 Yr Excess Return vs Category Ix",
-				"type": "varchar"
-			},
-			{
-				"name": "5 Yr Excess Return vs Category Ix",
-				"type": "varchar"
-			},
-			{
-				"name": "10 Yr Excess Return vs Category Ix",
-				"type": "varchar"
-			},
-			{
-				"name": "Net Flows",
+				"name": "Activity_Count",
 				"type": "varchar"
 			}
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "experience"
+			"table": "activity"
 		}
 	}
 }

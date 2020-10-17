@@ -1,105 +1,113 @@
 {
-	"name": "activity_gr",
+	"name": "Experience_ds",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase1",
+			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "AzureSqlTable",
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Experience.csv",
+				"folderPath": "GoldRush_MF_Finance_db",
+				"container": "gr-demo-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
 		"schema": [
 			{
 				"name": "Unique_Investment_Id",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "Morningstar Category",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "Month",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "Investment",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "Rating",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "1 Yr % Rank",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "3 Yr % Rank",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "5 Yr % Rank",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "10 Yr % Rank",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "1 Yr Return",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "3 Yr Return",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "5 Yr Return",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "10 Yr Return",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "1 Yr Excess Return vs Primary Ix",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "3 Yr Excess Return vs Primary Ix",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "5 Yr Excess Return vs Primary Ix",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "10 Yr Excess Return vs Primary Ix",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "1 Yr Excess Return vs Category Ix",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "3 Yr Excess Return vs Category Ix",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "5 Yr Excess Return vs Category Ix",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "10 Yr Excess Return vs Category Ix",
-				"type": "varchar"
+				"type": "String"
 			},
 			{
 				"name": "Net Flows",
-				"type": "varchar"
+				"type": "String"
 			}
-		],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": "experience"
-		}
+		]
 	}
 }

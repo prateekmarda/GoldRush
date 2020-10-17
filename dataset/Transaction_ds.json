@@ -1,0 +1,65 @@
+{
+	"name": "Transaction_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Transaction.csv",
+				"folderPath": "GoldRush_MF_Finance_db",
+				"container": "gr-demo-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Unique_Advisor_Id",
+				"type": "String"
+			},
+			{
+				"name": "Unique_Investment_Id",
+				"type": "String"
+			},
+			{
+				"name": "Month",
+				"type": "String"
+			},
+			{
+				"name": "Transaction_Type",
+				"type": "String"
+			},
+			{
+				"name": "Code_1",
+				"type": "String"
+			},
+			{
+				"name": "Code_2",
+				"type": "String"
+			},
+			{
+				"name": "Code_3",
+				"type": "String"
+			},
+			{
+				"name": "Code_4",
+				"type": "String"
+			},
+			{
+				"name": "Code_5",
+				"type": "String"
+			},
+			{
+				"name": "Amount",
+				"type": "String"
+			}
+		]
+	}
+}

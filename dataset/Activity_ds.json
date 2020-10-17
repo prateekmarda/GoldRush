@@ -1,0 +1,41 @@
+{
+	"name": "Activity_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Activity.csv",
+				"folderPath": "GoldRush_MF_Finance_db",
+				"container": "gr-demo-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Unique_Advisor_Id",
+				"type": "String"
+			},
+			{
+				"name": "Month",
+				"type": "String"
+			},
+			{
+				"name": "Activity_Type",
+				"type": "String"
+			},
+			{
+				"name": "Activity_Count",
+				"type": "String"
+			}
+		]
+	}
+}

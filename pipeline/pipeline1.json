@@ -16,21 +16,700 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "ExcelSource",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
 						"type": "AzureSqlSink",
 						"tableOption": "autoCreate"
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Unique_Advisor_Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Unique_Advisor_Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Month",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Month",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Activity_Type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Activity_Type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Activity_Count",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Activity_Count",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
-						"referenceName": "GR_Master_Excel_Activity",
+						"referenceName": "Activity_ds",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "activity_gr",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Asset",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Unique_Advisor_Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Unique_Advisor_Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Unique_Investment_Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Unique_Investment_Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Month",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Month",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Shares",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Shares",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AUM",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AUM",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Asset_ds",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "activity_gr",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Experience",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Unique_Investment_Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Unique_Investment_Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Morningstar Category",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Morningstar Category",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Month",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Month",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Investment",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Investment",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rating",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Rating",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1 Yr % Rank",
+									"type": "String"
+								},
+								"sink": {
+									"name": "1 Yr % Rank",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3 Yr % Rank",
+									"type": "String"
+								},
+								"sink": {
+									"name": "3 Yr % Rank",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5 Yr % Rank",
+									"type": "String"
+								},
+								"sink": {
+									"name": "5 Yr % Rank",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10 Yr % Rank",
+									"type": "String"
+								},
+								"sink": {
+									"name": "10 Yr % Rank",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1 Yr Return",
+									"type": "String"
+								},
+								"sink": {
+									"name": "1 Yr Return",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3 Yr Return",
+									"type": "String"
+								},
+								"sink": {
+									"name": "3 Yr Return",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5 Yr Return",
+									"type": "String"
+								},
+								"sink": {
+									"name": "5 Yr Return",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10 Yr Return",
+									"type": "String"
+								},
+								"sink": {
+									"name": "10 Yr Return",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "1 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "3 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "5 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "10 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1 Yr Excess Return vs Category Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "1 Yr Excess Return vs Category Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3 Yr Excess Return vs Category Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "3 Yr Excess Return vs Category Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5 Yr Excess Return vs Category Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "5 Yr Excess Return vs Category Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10 Yr Excess Return vs Category Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "10 Yr Excess Return vs Category Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Net Flows",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Net Flows",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Experience_ds",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "activity_gr",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Transaction",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Unique_Investment_Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Unique_Investment_Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Morningstar Category",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Morningstar Category",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Month",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Month",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Investment",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Investment",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rating",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Rating",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1 Yr % Rank",
+									"type": "String"
+								},
+								"sink": {
+									"name": "1 Yr % Rank",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3 Yr % Rank",
+									"type": "String"
+								},
+								"sink": {
+									"name": "3 Yr % Rank",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5 Yr % Rank",
+									"type": "String"
+								},
+								"sink": {
+									"name": "5 Yr % Rank",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10 Yr % Rank",
+									"type": "String"
+								},
+								"sink": {
+									"name": "10 Yr % Rank",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1 Yr Return",
+									"type": "String"
+								},
+								"sink": {
+									"name": "1 Yr Return",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3 Yr Return",
+									"type": "String"
+								},
+								"sink": {
+									"name": "3 Yr Return",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5 Yr Return",
+									"type": "String"
+								},
+								"sink": {
+									"name": "5 Yr Return",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10 Yr Return",
+									"type": "String"
+								},
+								"sink": {
+									"name": "10 Yr Return",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "1 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "3 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "5 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "10 Yr Excess Return vs Primary Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "1 Yr Excess Return vs Category Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "1 Yr Excess Return vs Category Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "3 Yr Excess Return vs Category Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "3 Yr Excess Return vs Category Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "5 Yr Excess Return vs Category Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "5 Yr Excess Return vs Category Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "10 Yr Excess Return vs Category Ix",
+									"type": "String"
+								},
+								"sink": {
+									"name": "10 Yr Excess Return vs Category Ix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Net Flows",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Net Flows",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Transaction_ds",
 						"type": "DatasetReference"
 					}
 				],

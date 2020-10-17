@@ -1,0 +1,105 @@
+{
+	"name": "sql_experience",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Unique_Investment_Id",
+				"type": "varchar"
+			},
+			{
+				"name": "Morningstar Category",
+				"type": "varchar"
+			},
+			{
+				"name": "Month",
+				"type": "varchar"
+			},
+			{
+				"name": "Investment",
+				"type": "varchar"
+			},
+			{
+				"name": "Rating",
+				"type": "varchar"
+			},
+			{
+				"name": "1 Yr % Rank",
+				"type": "varchar"
+			},
+			{
+				"name": "3 Yr % Rank",
+				"type": "varchar"
+			},
+			{
+				"name": "5 Yr % Rank",
+				"type": "varchar"
+			},
+			{
+				"name": "10 Yr % Rank",
+				"type": "varchar"
+			},
+			{
+				"name": "1 Yr Return",
+				"type": "varchar"
+			},
+			{
+				"name": "3 Yr Return",
+				"type": "varchar"
+			},
+			{
+				"name": "5 Yr Return",
+				"type": "varchar"
+			},
+			{
+				"name": "10 Yr Return",
+				"type": "varchar"
+			},
+			{
+				"name": "1 Yr Excess Return vs Primary Ix",
+				"type": "varchar"
+			},
+			{
+				"name": "3 Yr Excess Return vs Primary Ix",
+				"type": "varchar"
+			},
+			{
+				"name": "5 Yr Excess Return vs Primary Ix",
+				"type": "varchar"
+			},
+			{
+				"name": "10 Yr Excess Return vs Primary Ix",
+				"type": "varchar"
+			},
+			{
+				"name": "1 Yr Excess Return vs Category Ix",
+				"type": "varchar"
+			},
+			{
+				"name": "3 Yr Excess Return vs Category Ix",
+				"type": "varchar"
+			},
+			{
+				"name": "5 Yr Excess Return vs Category Ix",
+				"type": "varchar"
+			},
+			{
+				"name": "10 Yr Excess Return vs Category Ix",
+				"type": "varchar"
+			},
+			{
+				"name": "Net Flows",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "experience"
+		}
+	}
+}

@@ -1,0 +1,57 @@
+{
+	"name": "sql_transaction",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Unique_Advisor_Id",
+				"type": "varchar"
+			},
+			{
+				"name": "Unique_Investment_Id",
+				"type": "varchar"
+			},
+			{
+				"name": "Month",
+				"type": "varchar"
+			},
+			{
+				"name": "Transaction_Type",
+				"type": "varchar"
+			},
+			{
+				"name": "Code_1",
+				"type": "varchar"
+			},
+			{
+				"name": "Code_2",
+				"type": "varchar"
+			},
+			{
+				"name": "Code_3",
+				"type": "varchar"
+			},
+			{
+				"name": "Code_4",
+				"type": "varchar"
+			},
+			{
+				"name": "Code_5",
+				"type": "varchar"
+			},
+			{
+				"name": "Amount",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "transaction"
+		}
+	}
+}

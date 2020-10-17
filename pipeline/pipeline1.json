@@ -181,7 +181,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "activity_gr",
+						"referenceName": "sql_asset",
 						"type": "DatasetReference"
 					}
 				]
@@ -448,7 +448,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "activity_gr",
+						"referenceName": "sql_experience",
 						"type": "DatasetReference"
 					}
 				]
@@ -486,21 +486,21 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Unique_Investment_Id",
+									"name": "Unique_Advisor_Id",
 									"type": "String"
 								},
 								"sink": {
-									"name": "Unique_Investment_Id",
+									"name": "Unique_Advisor_Id",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Morningstar Category",
+									"name": "Unique_Investment_Id",
 									"type": "String"
 								},
 								"sink": {
-									"name": "Morningstar Category",
+									"name": "Unique_Investment_Id",
 									"type": "String"
 								}
 							},
@@ -516,191 +516,71 @@
 							},
 							{
 								"source": {
-									"name": "Investment",
+									"name": "Transaction_Type",
 									"type": "String"
 								},
 								"sink": {
-									"name": "Investment",
+									"name": "Transaction_Type",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Rating",
+									"name": "Code_1",
 									"type": "String"
 								},
 								"sink": {
-									"name": "Rating",
+									"name": "Code_1",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "1 Yr % Rank",
+									"name": "Code_2",
 									"type": "String"
 								},
 								"sink": {
-									"name": "1 Yr % Rank",
+									"name": "Code_2",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "3 Yr % Rank",
+									"name": "Code_3",
 									"type": "String"
 								},
 								"sink": {
-									"name": "3 Yr % Rank",
+									"name": "Code_3",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "5 Yr % Rank",
+									"name": "Code_4",
 									"type": "String"
 								},
 								"sink": {
-									"name": "5 Yr % Rank",
+									"name": "Code_4",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "10 Yr % Rank",
+									"name": "Code_5",
 									"type": "String"
 								},
 								"sink": {
-									"name": "10 Yr % Rank",
+									"name": "Code_5",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "1 Yr Return",
+									"name": "Amount",
 									"type": "String"
 								},
 								"sink": {
-									"name": "1 Yr Return",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "3 Yr Return",
-									"type": "String"
-								},
-								"sink": {
-									"name": "3 Yr Return",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "5 Yr Return",
-									"type": "String"
-								},
-								"sink": {
-									"name": "5 Yr Return",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "10 Yr Return",
-									"type": "String"
-								},
-								"sink": {
-									"name": "10 Yr Return",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "1 Yr Excess Return vs Primary Ix",
-									"type": "String"
-								},
-								"sink": {
-									"name": "1 Yr Excess Return vs Primary Ix",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "3 Yr Excess Return vs Primary Ix",
-									"type": "String"
-								},
-								"sink": {
-									"name": "3 Yr Excess Return vs Primary Ix",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "5 Yr Excess Return vs Primary Ix",
-									"type": "String"
-								},
-								"sink": {
-									"name": "5 Yr Excess Return vs Primary Ix",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "10 Yr Excess Return vs Primary Ix",
-									"type": "String"
-								},
-								"sink": {
-									"name": "10 Yr Excess Return vs Primary Ix",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "1 Yr Excess Return vs Category Ix",
-									"type": "String"
-								},
-								"sink": {
-									"name": "1 Yr Excess Return vs Category Ix",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "3 Yr Excess Return vs Category Ix",
-									"type": "String"
-								},
-								"sink": {
-									"name": "3 Yr Excess Return vs Category Ix",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "5 Yr Excess Return vs Category Ix",
-									"type": "String"
-								},
-								"sink": {
-									"name": "5 Yr Excess Return vs Category Ix",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "10 Yr Excess Return vs Category Ix",
-									"type": "String"
-								},
-								"sink": {
-									"name": "10 Yr Excess Return vs Category Ix",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Net Flows",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Net Flows",
+									"name": "Amount",
 									"type": "String"
 								}
 							}
@@ -715,7 +595,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "activity_gr",
+						"referenceName": "sql_transaction",
 						"type": "DatasetReference"
 					}
 				]

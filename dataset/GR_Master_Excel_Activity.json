@@ -11,7 +11,7 @@
 		],
 		"type": "Excel",
 		"typeProperties": {
-			"sheetName": "Asset",
+			"sheetName": "Activity",
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Master.xlsx",
@@ -26,19 +26,15 @@
 				"type": "String"
 			},
 			{
-				"name": "Unique_Investment_Id",
-				"type": "String"
-			},
-			{
 				"name": "Month",
 				"type": "String"
 			},
 			{
-				"name": "Shares",
+				"name": "Activity_Type",
 				"type": "String"
 			},
 			{
-				"name": "AUM",
+				"name": "Activity_Count",
 				"type": "String"
 			}
 		]
